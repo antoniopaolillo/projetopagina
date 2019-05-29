@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>CLÍNICA DOUTOR FABIANO</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="layouthome.css">
+	<script type="text/javascript"></script>
+</head>
+
+<body>
+	<nav class="menu-activea">
+		<h1>NAVEGAR</h1>
+		<ol>
+			<li><a href="paginahome.html">HOME</a></li>
+			<li><a href="paginacadastramento.html">PACIENTES</a></li>
+			<li><a href="paginacontato.html">CONTATO</a></li>
+		</ol>
+	</nav>
+	<main>
+		<section>
+			<p class="h1a">CENTRO CLÍNICO DOUTOR FABIANO</p><br><br><br><br><br><br>
+			<p class="escritahome">
+				CONTATO:<br>
+				Email: fabiano@pucpcaldas.br<br>
+				Telefone: (##) ####-#####<br>
+				WhatsApp: (##) #####-#####
+
+			</p><br><br><br><br><br><br><br><br><br><br>
+
+			<p class="infonav">Contato Desenvolvedor: antonio_francisco_p@live.com</p>
+			<br>
+			<p class="rodape">Desenvolvido por Antonio Paolillo</p>
+		</section>
+	</main>
+	<script>
+		(function () {
+
+			var nav = $('nav'),
+				menu = $('nav h1'),
+				main = $('main'),
+				open = false,
+				hover = false;
+
+			menu.on('click', function () {
+				open = !open ? true : false;
+				nav.toggleClass('menu-active');
+				main.toggleClass('menu-active');
+				nav.removeClass('menu-hover');
+				main.removeClass('menu-hover');
+				console.log(open);
+			});
+			menu.hover(
+				function () {
+					if (!open) {
+						nav.addClass('menu-hover');
+						main.addClass('menu-hover');
+					}
+				}, function () {
+					nav.removeClass('menu-hover');
+					main.removeClass('menu-hover');
+				}
+			);
+
+		})();
+	</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>CLÍNICA DOUTOR FABIANO</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="layout2.css">
+  <script type="text/javascript">
+
+    var pacientes = []
+    var pos = 0
+
+    function cadastro() {
+      var a = new Object();
+      var nome = $("#nome").val()
+      var nascimento = $("#nascimento").val()
+      var idade = parseInt($("#idade").val())
+      var sexo = $("#sexo").val()
+      var cep = $("#cep").val()
+      var logradouro = $("#logradouro").val()
+      var numero = $("#numero").val()
+      var complemento = $("#complemento").val()
+      var bairro = $("#bairro").val()
+      var uf = $("#uf").val()
+      var telefone = $("#telefone").val()
+      var email = $("#email").val()
+      var tipos = $("#tipos").val()
+      var pressao = $("#pressao").val()
+      var temp = $("#temp").val()
+      var remed = $("#remed").val()
+      var obs = $("#obs").val()
+      var data = $("#data").val()
+
+      a.nome = nome
+      a.nascimento = nascimento
+      a.idade = idade
+      a.sexo = sexo
+      a.cep = cep
+      a.logradouro = logradouro
+      a.numero = numero
+      a.complemento = complemento
+      a.bairro = bairro
+      a.uf = uf
+      a.telefone = telefone
+      a.email = email
+      a.tipos = tipos
+      a.pressao = pressao
+      a.temp = temp
+      a.remed = remed
+      a.obs = obs
+      a.data = data
+
+      pacientes[pos] = a
+
+      pos++;
+      
+      alert("PACIENTE CADASTRADO COM SUCESSO");
+
+      $('#nome').val('');
+      $('#nascimento').val('');
+      $('#idade').val('');
+      $('#sexo').val('');
+      $('#cep').val('');
+      $('#logradouro').val('');
+      $('#numero').val('');
+      $('#complemento').val('');
+      $('#bairro').val('');
+      $('#uf').val('');
+      $('#telefone').val('');
+      $('#email').val('');
+      $('#tipos').val('');
+      $('#pressao').val('');
+      $('#temp').val('');
+      $('#remed').val('');
+      $('#obs').val('');
+      $('#data').val('');
+
+    }
+
+    function lista() {
+      $("#resultado").html("");
+      var i;
+      for (i = 0; i < pos; i++) {
+          $("#resultado").append("PACIENTE: #" + (i + 1) + "<br>");
+          $("#resultado").append("NOME: " + pacientes[i].nome + "<br>");
+          $("#resultado").append("DATA DE NASCIMENTO: " + pacientes[i].nascimento + "<br>");
+          $("#resultado").append("IDADE: " + pacientes[i].idade + "<br>");
+          $("#resultado").append("SEXO: " + pacientes[i].sexo + "<br>");
+          $("#resultado").append("CEP: " + pacientes[i].cep + "<br>");
+          $("#resultado").append("LOGRADOURO: " + pacientes[i].logradouro + "<br>");
+          $("#resultado").append("NÚMERO: " + pacientes[i].numero + "<br>");
+          $("#resultado").append("COMPLEMENTO: " + pacientes[i].complemento + "<br>");
+          $("#resultado").append("BAIRRO: " + pacientes[i].bairro + "<br>");
+          $("#resultado").append("UF: " + pacientes[i].uf + "<br>");
+          $("#resultado").append("TELEFONE: " + pacientes[i].telefone + "<br>");
+          $("#resultado").append("EMAIL: " + pacientes[i].email + "<br>");
+          $("#resultado").append("TIPO SANGUÍNEO: " + pacientes[i].tipos + "<br>");
+          $("#resultado").append("PRESSÃO ARTERIAL: " + pacientes[i].pressao + "<br>");
+          $("#resultado").append("TEMPERATURA: " + pacientes[i].temp + "<br>");
+          $("#resultado").append("MEDICAMENTOS: " + pacientes[i].remed + "<br>");
+          $("#resultado").append("OBSERVAÇÕES: " + pacientes[i].obs + "<br>");
+          $("#resultado").append("DATA(AAAA/MM/DD): " + pacientes[i].data + "<br>" + "<br>" + "<br>");
+          ;
+
+      }
+    }
+    function ativa() {
+      var div = document.getElementById('tabelacompleta')
+      var div2 = document.getElementById('idbotaogerar')
+      /* se conteúdo está escondido, mostra e troca o valor do botão para: esconde */
+      if (div.style.display == 'none') {
+        document.getElementById("tabelacompleta").value = 'esconde'
+        div.style.display = 'block'
+        div2.style.display = 'none'
+      }
+    }
+
+    function ativa1() {
+      var div = document.getElementById('tabelacompleta')
+      var div2 = document.getElementById('idbotaogerar')
+      if (div.style.display == 'none') {
+        document.getElementById("tabelacompleta").value = 'esconde'
+      } else {
+        div.style.display = 'none'
+        document.getElementById("tabelacompleta").value = 'mostra'
+        div2.style.display = 'block'
+      }
+    }
+    function buscar() {
+      //Busca na tela o nome a ser buscar no vetor
+      var buscar = $("#busca").val();
+      var i;
+      //Limpa a parte da tela onde será apresentado o resultado
+      $("#resultado").html("");
+      //Percore o vetor de pacientes
+      for (i = 0; i < pos; i++) {
+        //Verifica se o nome que esta no objeto da posicão corrente do vetor
+        //é igual ao valor buscar
+        if (buscar == pacientes[i].nome) {
+          $("#resultado").append("PACIENTE: #" + (i + 1) + "<br>");
+          $("#resultado").append("NOME: " + pacientes[i].nome + "<br>");
+          $("#resultado").append("DATA DE NASCIMENTO: " + pacientes[i].nascimento + "<br>");
+          $("#resultado").append("IDADE: " + pacientes[i].idade + "<br>");
+          $("#resultado").append("SEXO: " + pacientes[i].sexo + "<br>");
+          $("#resultado").append("CEP: " + pacientes[i].cep + "<br>");
+          $("#resultado").append("LOGRADOURO: " + pacientes[i].logradouro + "<br>");
+          $("#resultado").append("NÚMERO: " + pacientes[i].numero + "<br>");
+          $("#resultado").append("COMPLEMENTO: " + pacientes[i].complemento + "<br>");
+          $("#resultado").append("BAIRRO: " + pacientes[i].bairro + "<br>");
+          $("#resultado").append("UF: " + pacientes[i].uf + "<br>");
+          $("#resultado").append("TELEFONE: " + pacientes[i].telefone + "<br>");
+          $("#resultado").append("EMAIL: " + pacientes[i].email + "<br>");
+          $("#resultado").append("TIPO SANGUÍNEO: " + pacientes[i].tipos + "<br>");
+          $("#resultado").append("PRESSÃO ARTERIAL: " + pacientes[i].pressao + "<br>");
+          $("#resultado").append("TEMPERATURA: " + pacientes[i].temp + "<br>");
+          $("#resultado").append("MEDICAMENTOS: " + pacientes[i].remed + "<br>");
+          $("#resultado").append("OBSERVAÇÕES: " + pacientes[i].obs + "<br>");
+          $("#resultado").append("DATA(AAAA/MM/DD): " + pacientes[i].data + "<br>" + "<br>" + "<br>");
+          ;
+        } 
+      }
+    }
+  </script>
+  </script>
+</head>
+
+<body>
+  <nav class="menu-activea">
+    <h1>NAVEGAR</h1>
+    <ol>
+      <li><a href="paginahome.html">HOME</a></li>
+      <li><a href="paginacadastro.html">PACIENTES</a></li>
+      <li><a href="paginacontato.html">CONTATO</a></li>
+    </ol>
+  </nav>
+  <main>
+    <section>
+      <br>
+      <button class="botoes2e3" onclick="ativa()">Cadastramento</button>
+      <button class="botoes2e3" onclick="ativa1()">Lista de pacientes</button><br><br>
+      <div class="paginadocadastro" id="tabelacompleta">
+        <h1 class="ficha">FICHA DE CADASTRO</h1><br>
+        <fieldset id="dadospessoais" class="dados">
+          <legend>Dados Pessoais</legend>
+          <table cellspacing="10" class="quadrao">
+            <input type="text" class="quadro" id="nome" placeholder="Nome Completo">
+            <input type="text" class="quadro" placeholder="Data de Nascimento (dd/mm/aaaa)" id="nascimento">
+            <input type="text" class="quadro" placeholder="Idade" id="idade">
+            <select id="sexo" class="quadro" placeholder="Sexo">
+              <option value='Indefinido'>Sexo</option>
+              <option value='Masculino'>Masculino</option>
+              <option value='Feminino'>Feminino</option>
+            </select>
+            <form>
+              <label for="cep"></label>
+              <input id="cep" class="quadro" type="text" placeholder="CEP (#######)" required />
+              <label for="logradouro"></label>
+              <input id="logradouro" class="quadro" type="text" placeholder="Logradouro" required />
+              <label for="numero"></label>
+              <input id="numero" class="quadro" type="text" placeholder="Número" />
+              <label for="complemento"></label>
+              <input id="complemento" class="quadro" type="text" placeholder="Complemento" />
+              <label for="bairro"></label>
+              <input id="bairro" class="quadro" type="text" placeholder="Bairro" required />
+              <label for="uf"></label>
+              <select id="uf" class="quadro">
+                <option value="NADA">Estado</option>
+                <option value="AC">Acre</option>
+                <option value="AL">Alagoas</option>
+                <option value="AP">Amapá</option>
+                <option value="AM">Amazonas</option>
+                <option value="BA">Bahia</option>
+                <option value="CE">Ceará</option>
+                <option value="DF">Distrito Federal</option>
+                <option value="ES">Espírito Santo</option>
+                <option value="GO">Goiás</option>
+                <option value="MA">Maranhão</option>
+                <option value="MT">Mato Grosso</option>
+                <option value="MS">Mato Grosso do Sul</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="PA">Pará</option>
+                <option value="PB">Paraíba</option>
+                <option value="PR">Paraná</option>
+                <option value="PE">Pernambuco</option>
+                <option value="PI">Piauí</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="RN">Rio Grande do Norte</option>
+                <option value="RS">Rio Grande do Sul</option>
+                <option value="RO">Rondônia</option>
+                <option value="RR">Roraima</option>
+                <option value="SC">Santa Catarina</option>
+                <option value="SP">São Paulo</option>
+                <option value="SE">Sergipe</option>
+                <option value="TO">Tocantins</option>
+              </select>
+            </form>
+            <script>
+              $("#cep").focusout(function () {
+                $.ajax({
+                  url: 'https://viacep.com.br/ws/' + $(this).val() + '/json/unicode/',
+                  dataType: 'json',
+                  success: function (resposta) {
+                    $("#logradouro").val(resposta.logradouro);
+                    $("#complemento").val(resposta.complemento);
+                    $("#bairro").val(resposta.bairro);
+                    $("#cidade").val(resposta.localidade);
+                    $("#uf").val(resposta.uf);
+                    $("#numero").focus();
+                  }
+                });
+              });
+            </script>
+            <input type="text" class="quadro" id="telefone" placeholder="Telefone Celular (##) #####-####">
+            <input type="text" class="quadro" id="email" placeholder="exemplo@email.com.br"><br><br>
+          </table>
+        </fieldset><br><br>
+        <fieldset class="dados" id="dadosmedicos">
+          <legend>Dados Medicos</legend><br>
+          <input type="text" class="quadro" id="tipos" placeholder="Tipo Sanguíneo">
+          <input type="text" class="quadro" id="pressao" placeholder="Pressão Sanguínea"><br>
+          <input type="text" class="quadro" id="temp" placeholder="Temperatura Corporal">
+          <input type="text" class="quadro" id="remed" placeholder="Medicamentos Controlados"><br><br>
+          <input type="text" class="obser" id="obs" placeholder="Observações"><br>
+          <input type="date" class="quadro" id="data">
+          </form>
+        </fieldset><br>
+        <button class="botao" id="botaocadastro" onclick="cadastro()">Cadastrar</button><br><br>
+        <footer class="rodape">Desenvolvido por Antonio Paolillo </footer>
+      </div>
+      <div class="botaogerar" id="idbotaogerar">
+        <button class="botaogerarlista" onclick="lista()">Gerar Lista</button><br><br>
+         <input  class = "quadrobuscar" id="busca" type="text" placeholder="Buscar pelo nome...">
+         <button class = "botaobuscar" onclick="buscar()">Buscar</button><br><br>
+        <div id="resultado" class="pacientesdiv">
+        </div><br>
+      </div>
+    </section>
+  </main>
+  <script>
+    (function () {
+
+      var nav = $('nav'),
+        menu = $('nav h1'),
+        main = $('main'),
+        open = false,
+        hover = false;
+
+      menu.on('click', function () {
+        open = !open ? true : false;
+        nav.toggleClass('menu-active');
+        main.toggleClass('menu-active');
+        nav.removeClass('menu-hover');
+        main.removeClass('menu-hover');
+        console.log(open);
+      });
+      menu.hover(
+        function () {
+          if (!open) {
+            nav.addClass('menu-hover');
+            main.addClass('menu-hover');
+          }
+        }, function () {
+          nav.removeClass('menu-hover');
+          main.removeClass('menu-hover');
+        }
+      );
+
+    })();
+  </script>
+
+</body>
+
+</html>

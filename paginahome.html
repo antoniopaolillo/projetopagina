@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>CLÍNICA DOUTOR FABIANO</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="layouthome.css">
+	<script type="text/javascript"></script>
+</head>
+
+<body>
+	<nav class="menu-activea">
+		<h1>NAVEGAR</h1>
+		<ol>
+			<li><a href="paginahome.html">HOME</a></li>
+			<li><a href="paginacadastramento.html">PACIENTES</a></li>
+			<li><a href="paginacontato.html">CONTATO</a></li>
+		</ol>
+	</nav>
+	<main>
+		<section>
+			<p class="h1a">CENTRO CLÍNICO DOUTOR FABIANO</p><br><br><br><br><br>
+			<p class="escritahome">
+
+				Nossa missão é proporcionar cuidado humanizado e de excelência em saúde, com foco na vida e no
+				acolhimento com
+				qualidade, na construção de conhecimento e na sustentabilidade.
+
+				Temos por visão ser clínica de referência regional, comprometido com qualidade, sustentabilidade,
+				ensino,
+				desenvolvimento científico e inserção comunitária.<br>
+
+				Princípios:<br>
+				Humanização: Respeitar a diversidade no processo de promoção da saúde, proporcionando relacionamentos
+				solidários e responsáveis.<br>
+
+				Ética: Agir de forma íntegra e responsável, observando os preceitos de igualdade e transparência.<br>
+
+				Excelência: Atuar na satisfação das necessidades dos usuários e na melhoria contínua dos processos e dos
+				resultados.<br>
+
+				Sustentabilidade: Gerir recursos de forma social, econômica e ambientalmente responsável, visando à
+				sustentabilidade institucional.<br>
+
+				Desenvolvimento Humano: Promover a valorização pessoal e profissional a partir do desenvolvimento
+				contínuo das potencialidades humanas.<br>
+
+				Desenvolvimento Científico e Tecnológico: Incrementar o desenvolvimento científico e tecnológico, a fim
+				de aproximar o HSC dos grandes avanços na área.
+			</p><br><br><br><br>
+
+			<p class="infonav">Clique em "NAVEGAR" para seguir ao cadastramento e consulta de pacientes.</p>
+			<br><br><br>
+			<p class="rodape">Desenvolvido por Antonio Paolillo</p>
+		</section>
+	</main>
+	<script>
+		(function () {
+
+			var nav = $('nav'),
+				menu = $('nav h1'),
+				main = $('main'),
+				open = false,
+				hover = false;
+
+			menu.on('click', function () {
+				open = !open ? true : false;
+				nav.toggleClass('menu-active');
+				main.toggleClass('menu-active');
+				nav.removeClass('menu-hover');
+				main.removeClass('menu-hover');
+				console.log(open);
+			});
+			menu.hover(
+				function () {
+					if (!open) {
+						nav.addClass('menu-hover');
+						main.addClass('menu-hover');
+					}
+				}, function () {
+					nav.removeClass('menu-hover');
+					main.removeClass('menu-hover');
+				}
+			);
+
+		})();
+	</script>
+
+
+</body>
+
+</html>
