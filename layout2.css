@@ -1,0 +1,276 @@
+html,
+    body {
+      height: 100%;
+	  zoom: 80%;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Roboto Condensed', sans-serif;
+      line-height: 1.7;
+      perspective-origin: 0% 50%;
+      perspective: 800px;
+      background: rgb(202, 12, 12);
+      background-image:url(testebackground.png);
+      text-align: center;
+    }
+
+    nav,
+    main {
+      transition: transform 150ms ease-out;
+    }
+
+    nav {
+      z-index: 100;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 16em;
+      background-color: #353441;
+      transform: translateX(-16em);
+      
+    }
+
+    nav.menu-active {
+      transform: translateX(0);
+    }
+
+    nav.menu-hover {
+      transform: translateX(-15em);
+    }
+
+    nav h1 {
+      z-index: 100;
+      display: block;
+      position: absolute;
+      top: 0;
+      right: -100px;
+      height: 60px;
+      width: 100px;
+      line-height: 60px;
+      font-size: 0.8em;
+      font-weight: 300;
+      letter-spacing: 1px;
+      color: #fff;
+      text-transform: uppercase;
+      text-align: center;
+      background-color: #353441;
+      cursor: pointer;
+    }
+
+    nav h1:hover {
+      color: rgb(202, 12, 12);
+      background: #fff;
+    }
+
+    nav ol {
+      margin: 0;
+      padding: 0;
+    }
+
+    nav li {
+      display: inline-block;
+      padding: 0 1em;
+      width: 100%;
+      height: 60px;
+      color: #9dc6d1;
+      line-height: 60px;
+      background-color: #353441;
+      transition: all 0.5s ease-in;
+      text-decoration: none;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      color: none;
+      font-size: 24px;
+    }
+
+    nav li:nth-of-type(2n) {
+      background-color: #353441;
+    }
+
+    nav li:hover {
+      background: white;
+      color: white;
+
+    }
+
+    main {
+      z-index: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      transform-origin: 0% 50%;
+      background-size: cover;
+    }
+
+    main:after {
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: linear-gradient(to right, transparent);
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 150ms ease-out, visibility 0s 150ms;
+    }
+
+    main.menu-active {
+      border-radius: 0.001px;
+      transform: translateX(16em) rotateY(15deg);
+    }
+
+    main.menu-active:after {
+      visibility: visible;
+      opacity: 1;
+      transition: opacity 150ms ease-out, visibility 0s;
+    }
+
+    main.menu-hover {
+      border-radius: 0.001px;
+      transform: translateX(1em) rotateY(1deg);
+    }
+
+    main section {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+      padding: 1em 4em;
+      max-width: 1000px;
+      overflow: auto;
+      background-color: white;
+    }
+
+    section h1 {
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 2em;
+    }
+
+    section p {
+      display: inline-block;
+      margin: 16px 0;
+    }
+
+    .dados {
+      border: 4px solid;
+      margin: auto;
+      text-align: center;
+    }
+
+    .quadro {
+      color: rgb(0, 0, 0);
+      background-color: rgb(255, 255, 255);
+      font-size: 20px;
+      text-align: center;
+      width: 350px;
+      height: 50px;
+      border-style: inset;
+      border-radius: 15px;
+      border-color: rgb(202, 12, 12);
+      border-width: 4px;
+      margin-top: 22px;
+      margin-right: 20px;
+      margin-left: 20px;
+      
+    }
+
+    .botao {
+      color: rgb(255, 248, 248);
+      background-color: rgb(202, 12, 12);
+      font-size: 36px;
+      margin: auto;
+      width: 650px;
+      height: 75px;
+      border-radius: 15px;
+      text-align: center;
+    }
+
+    .botaolista {
+      color: rgb(255, 248, 248);
+      background-color: rgb(202, 12, 12);
+      font-size: 36px;
+      margin: auto;
+      width: 25%;
+      text-align: center;
+    }
+
+    .obser {
+      width: 600px;
+      height: 80px;
+      font-size: 15px;
+      text-align: center;
+      border-style: inset;
+      border-radius: 15px;
+      border-color: rgb(202, 12, 12);
+      border-width: 4px;
+    }
+    .ficha{
+        text-align: center;
+    }
+    .rodape{
+        font-size: 20px;
+        text-align: right;
+        font-style: italic;
+    }
+    .paginadocadastro{
+        text-align: center;
+    }
+    .botoes2e3{
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 27px;
+      width: 400px;
+      height: 80px;
+      margin-left: 10px;
+      margin-right: 10px;
+      color: white;
+      background-color: rgb(202, 12, 12);
+      border-radius: 15px;
+
+    }
+    .botaogerar{
+      display: none;
+    }
+    .botaogerarlista{
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 22px;
+      width: 300px;
+      height: 60px;
+      margin-left: 10px;
+      margin-right: 10px;
+      color: white;
+      background-color: rgb(202, 12, 12);
+      border-radius: 15px;
+
+    }
+    .pacientesdiv{
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 20px;
+      text-align: left;
+    }
+    .quadrobuscar{
+      width: 350px;
+      height: 40px;
+      font-size: 20px;
+    }
+    .botaobuscar{
+      height: 40px;
+      width: 60px;
+
+    }
